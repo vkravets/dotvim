@@ -72,7 +72,7 @@ let g:gbr_current_branch_top = 1
 let g:gbr_window_height = 20
 
 map <C-n> :NERDTreeToggle<CR>
-map <C-q> :AsyncFinder<CR>
+map <C-a> :AsyncFinderBottom<CR>
 map <C-b> :Gbr<CR>
 
 autocmd StdinReadPre * let s:std_in=1
