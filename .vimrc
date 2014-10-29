@@ -68,7 +68,12 @@ set termencoding=utf-8
 "colorscheme grb256
 colorscheme distinguished
 
+let g:gbr_current_branch_top = 1
+let g:gbr_window_height = 20
+
 map <C-n> :NERDTreeToggle<CR>
+map <C-q> :AsyncFinder<CR>
+map <C-b> :Gbr
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
