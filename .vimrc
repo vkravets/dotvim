@@ -63,10 +63,10 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-" let g:hybrid_use_iTerm_colors = 1
-"colorscheme hybrid
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 "colorscheme grb256
-colorscheme distinguished
+"colorscheme distinguished
 
 let g:gbr_current_branch_top = 1
 let g:gbr_window_height = 20
