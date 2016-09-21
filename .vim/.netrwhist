@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/vkravets/work/swagger-ui'
+let g:netrw_dirhist_2='/Users/vkravets/.oh-my-zsh/plugins/github'
+let g:netrw_dirhist_3='/Users/vkravets/work/cuda/mavenized-jcuda/repo'
+let g:netrw_dirhist_4='/Users/vkravets/.oh-my-zsh/plugins/virtualenv'
+let g:netrw_dirhist_5='/Users/vkravets/.oh-my-zsh/plugins/virtualenvwrapper'

@@ -1,3 +1,5 @@
+let idea_terminal=$IDEA_TERMINAL
+
 set nocompatible              " be iMproved, required
 set number
 filetype off                  " required
@@ -10,7 +12,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Bling/vim-airline'
+if idea_terminal != 'true'
+  Plugin 'Bling/vim-airline'
+endif
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'chase/vim-ansible-yaml'
@@ -63,10 +67,28 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid
-"colorscheme grb256
-"colorscheme distinguished
+set background=dark
+if idea_terminal != 'true'
+  let g:hybrid_custom_term_colors = 1
+  let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+  colorscheme hybrid
+else
+  "colorscheme grb256
+  colorscheme distinguished
+
+  set statusline=%t       "tail of the filename
+  set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+  set statusline+=%{&ff}] "file format
+  set statusline+=%h      "help file flag
+  set statusline+=%m      "modified flag
+  set statusline+=%r      "read only flag
+  set statusline+=%y      "filetype
+  set statusline+=%=      "left/right separator
+  set statusline+=%c,     "cursor column
+  set statusline+=%l/%L   "cursor line/total lines
+  set statusline+=\ %P    "percent through file
+
+endif
 
 let g:gbr_current_branch_top = 1
 let g:gbr_window_height = 20
