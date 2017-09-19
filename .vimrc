@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'troydm/asyncfinder.vim'
 Plugin 'takahirojin/gbr.vim'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'wakatime/vim-wakatime'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
