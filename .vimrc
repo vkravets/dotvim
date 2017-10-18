@@ -69,6 +69,11 @@ set term=xterm-256color
 set termencoding=utf-8
 
 set background=dark
+" for vim 8
+if (has("termguicolors"))
+"  set termguicolors
+endif
+
 if idea_terminal != 'true'
   let g:hybrid_custom_term_colors = 1
   let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
