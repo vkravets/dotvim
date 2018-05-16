@@ -4,45 +4,31 @@ set nocompatible              " be iMproved, required
 set number
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-if idea_terminal != 'true'
-  Plugin 'Bling/vim-airline'
+" auto-install vim-plug                                                                                                                
+if empty(glob('~/.vim/autoload/plug.vim'))                                                                                    
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim                                           
+  autocmd VimEnter * PlugInstall                                                                                                      
 endif
-Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'tpope/vim-markdown'
-Plugin 'scrooloose/nerdtree'
-Plugin 'troydm/asyncfinder.vim'
-Plugin 'takahirojin/gbr.vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'wakatime/vim-wakatime'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+call plug#begin('~/.vim/bundle/Vundle.vim')
+
+Plug 'Bling/vim-airline'
+Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
+Plug 'chase/vim-ansible-yaml'
+Plug 'tpope/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'troydm/asyncfinder.vim'
+Plug 'takahirojin/gbr.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'wakatime/vim-wakatime'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -57,7 +43,31 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set laststatus=2
+let mapleader=','
 let g:airline_powerline_fonts = 1
+" Show Tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Show Buffers
+let g:airline#extensions#tabline#show_buffers = 1
+
+" Otherwise key-mapping doesn't work
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+
+" Don't display 'BUFFERS', etc on the top right
+let g:airline#extensions#tabline#show_tab_type = 0
+
+" Don't show buffer numbers
+let g:airline#extensions#tabline#buffer_nr_show = 0
 filetype on
 syntax on
 
@@ -67,34 +77,17 @@ set t_kB=[Z
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+let mapleader = ','
 
-set background=dark
 " for vim 8
 if (has("termguicolors"))
-"  set termguicolors
+  " set termguicolors
 endif
 
-if idea_terminal != 'true'
-  let g:hybrid_custom_term_colors = 1
-  let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-  colorscheme hybrid
-else
-  "colorscheme grb256
-  colorscheme distinguished
-
-  set statusline=%t       "tail of the filename
-  set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-  set statusline+=%{&ff}] "file format
-  set statusline+=%h      "help file flag
-  set statusline+=%m      "modified flag
-  set statusline+=%r      "read only flag
-  set statusline+=%y      "filetype
-  set statusline+=%=      "left/right separator
-  set statusline+=%c,     "cursor column
-  set statusline+=%l/%L   "cursor line/total lines
-  set statusline+=\ %P    "percent through file
-
-endif
+set background=dark
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+set noshowmode
 
 let g:gbr_current_branch_top = 1
 let g:gbr_window_height = 20
