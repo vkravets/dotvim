@@ -10,18 +10,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall                                                                                                      
 endif
 
-call plug#begin('~/.vim/bundle/Vundle.vim')
+call plug#begin('~/.vim/bundle')
 
 Plug 'Bling/vim-airline'
-Plug 'klen/python-mode'
+" Plug 'klen/python-mode'
 Plug 'davidhalter/jedi-vim'
-Plug 'chase/vim-ansible-yaml'
+" Plug 'chase/vim-ansible-yaml'
 Plug 'tpope/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'troydm/asyncfinder.vim'
 Plug 'takahirojin/gbr.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -33,14 +33,6 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 set laststatus=2
 let mapleader=','
